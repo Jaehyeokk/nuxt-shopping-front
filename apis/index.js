@@ -5,6 +5,8 @@ const instance = axios.create({
 })
 
 // shopping apis
+
+// products
 function fetchProducts(keyword) {
   return keyword ? instance.get('/products', {
     params: {
@@ -17,4 +19,18 @@ function fetchProduct(id) {
   return instance.get(`/products/${id}`)
 }
 
-export { fetchProducts, fetchProduct }
+// carts
+function fetchCartItems() {
+  return instance.get('/carts')
+}
+
+function addCartItem(item) {
+  return instance.post('/carts', item)
+}
+
+function removeCartItem(id) {
+  // return instance.delete(`/carts/${id}`)
+}
+
+
+export { fetchProducts, fetchProduct, fetchCartItems, addCartItem, removeCartItem }

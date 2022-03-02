@@ -1,12 +1,18 @@
 <template>
-  <NuxtLink to="/" class="cart-link">
+  <NuxtLink to="/cart" class="cart-link">
     <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
-    <div class="cart-number">1</div>
+    <div v-if="cartsLength" class="cart-number">{{ cartsLength }}</div>
   </NuxtLink>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    cartsLength() {
+      return this.$store.state.carts.length || 0;
+    },
+  },
+};
 </script>
 
 <style scoped>

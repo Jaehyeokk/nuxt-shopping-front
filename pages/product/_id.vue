@@ -7,7 +7,7 @@
         <p class="product-price">&#36;{{ product.price }}</p>
         <div class="product-btns-wrapper">
           <button>Buy</button>
-          <button class="product-btn">Add To Cart</button>
+          <button class="product-btn" @click="addToCart">Add To Cart</button>
         </div>
       </div>
     </div>
@@ -22,6 +22,12 @@ export default {
   computed: {
     product() {
       return this.$store.state.product;
+    },
+  },
+  methods: {
+    async addToCart() {
+      await this.$store.dispatch('ADD_CART_ITEM', this.product);
+      this.$router.push('/cart');
     },
   },
 };
