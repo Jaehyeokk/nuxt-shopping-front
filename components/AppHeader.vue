@@ -5,8 +5,8 @@
         <NuxtLink to="/"> Nuxt-shopping </NuxtLink>
       </h1>
       <div class="util-wrapper">
-        <SearchInput></SearchInput>
-        <CartBtn></CartBtn>
+        <SearchInput v-model="searchKeyword" @search="onSearch"></SearchInput>
+        <CartBtn class="cart-btn"></CartBtn>
       </div>
     </div>
   </header>
@@ -17,6 +17,17 @@ import CartBtn from './CartBtn.vue';
 import SearchInput from './SearchInput.vue';
 export default {
   components: { SearchInput, CartBtn },
+  data() {
+    return {
+      searchKeyword: '',
+    };
+  },
+  methods: {
+    onSearch() {
+      const keyword = this.searchKeyword;
+      this.$store.dispatch('FETCH_PRODUCTS', keyword);
+    },
+  },
 };
 </script>
 
@@ -45,5 +56,9 @@ export default {
 
 .util-wrapper {
   display: flex;
+}
+
+.cart-btn {
+  margin-left: 20px;
 }
 </style>

@@ -40,4 +40,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // env
+  env: {
+    BASE_URL: process.env.API_URL || 'http://localhost:3000'
+  }
 }

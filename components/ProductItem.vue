@@ -1,5 +1,5 @@
 <template>
-  <li class="product-item">
+  <li class="product-item" @click.prevent="moveToProductPage">
     <img :src="item.imageUrl" :alt="item.name" />
     <div class="product-description">
       <p class="product-name">{{ item.name }}</p>
@@ -14,6 +14,11 @@ export default {
     item: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    moveToProductPage() {
+      this.$router.push(`/product/${this.item.id}`);
     },
   },
 };

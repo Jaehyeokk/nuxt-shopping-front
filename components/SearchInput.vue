@@ -1,14 +1,27 @@
 <template>
   <div class="search-wrapper">
-    <input type="text" class="search-input" />
-    <button class="search-btn" type="button">
+    <input
+      type="text"
+      class="search-input"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
+      @keyup.enter="$emit('search')"
+    />
+    <button class="search-btn" type="button" @click="$emit('search')">
       <i class="fa fa-search" aria-hidden="true"></i>
     </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    value: {
+      type: String,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -5,8 +5,16 @@ const instance = axios.create({
 })
 
 // shopping apis
-function fetchProducts() {
-  return instance.get('/products')
+function fetchProducts(keyword) {
+  return keyword ? instance.get('/products', {
+    params: {
+      name_like: keyword
+    }
+  }) : instance.get('/products')
 }
 
-export { fetchProducts }
+function fetchProduct(id) {
+  return instance.get(`/products/${id}`)
+}
+
+export { fetchProducts, fetchProduct }
