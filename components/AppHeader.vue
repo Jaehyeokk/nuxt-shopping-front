@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container">
       <h1 class="logo">
-        <NuxtLink to="/"> Nuxt-shopping </NuxtLink>
+        <NuxtLink to="/"> Nuxt Shopping </NuxtLink>
       </h1>
       <div class="util-wrapper">
         <SearchInput v-model="searchKeyword" @search="onSearch"></SearchInput>
@@ -33,8 +33,8 @@ export default {
 
 <style scoped>
 .header {
-  padding: 15px 20px;
-  background-color: skyblue;
+  padding: 15px;
+  background-color: #35495e;
 }
 
 .header .logo {
@@ -44,7 +44,7 @@ export default {
 }
 
 .header .logo a {
-  color: #fff;
+  color: #41b883;
   text-decoration: none;
 }
 
@@ -60,5 +60,11 @@ export default {
 
 .cart-btn {
   margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .header .logo a {
+    font-size: 18px;
+  }
 }
 </style>

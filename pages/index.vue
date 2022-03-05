@@ -31,6 +31,6 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: pink;
+  background-color: #41b883;
 }
 </style>

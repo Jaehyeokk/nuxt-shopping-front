@@ -36,9 +36,9 @@ export default {
   bottom: 0;
   width: 15px;
   height: 15px;
-  border: 1px solid #fff;
+  border: 1px solid #41b883;
   border-radius: 50%;
-  background-color: pink;
+  background-color: #3b8070;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;

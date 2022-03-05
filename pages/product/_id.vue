@@ -6,7 +6,7 @@
         <p class="product-title">{{ product.name }}</p>
         <p class="product-price">&#36;{{ product.price }}</p>
         <div class="product-btns-wrapper">
-          <button>Buy</button>
+          <button disabled>Buy</button>
           <button class="product-btn" @click="addToCart">Add To Cart</button>
         </div>
       </div>
@@ -75,10 +75,44 @@ export default {
 .product-btns-wrapper button {
   width: calc(50% - 10px);
   height: 50px;
-  border: 1px solid #ccc;
+  border: 2px solid #41b883;
   border-radius: 4px;
   outline: none;
   background-color: #fff;
   cursor: pointer;
+}
+
+.product-btns-wrapper button:disabled {
+  border: 2px solid #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .product-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .product-img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .product-title {
+    margin: 20px 0;
+  }
+
+  .product-info-wrapper {
+    width: 100%;
+    padding-bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-title {
+    font-size: 24px 
+  }
+
+  .product-price {
+    font-size: 21px;
+  }
 }
 </style>

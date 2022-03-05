@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <div class="section">
+      <h2 class="title">Cart</h2>
+      <p class="cart-sub-title">There are {{ cartsLenghth }} products in your cart.</p>
       <ul class="cart-list">
         <li v-for="cart in carts" :key="cart.id" class="cart-item">
           <div class="cart-img-wrapper">
@@ -25,6 +27,9 @@ export default {
     carts() {
       return this.$store.state.carts;
     },
+    cartsLenghth() {
+      return this.$store.state.carts.length
+    }
   },
   methods: {
     async removeCartItem(id) {
@@ -40,8 +45,23 @@ export default {
   align-items: center;
   position: relative;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 2px solid #41b883;
   border-radius: 4px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+}
+
+.cart-sub-title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #999;
+  text-align: center;
 }
 
 .cart-img-wrapper {
@@ -50,7 +70,7 @@ export default {
   align-items: center;
   width: 200px;
   padding: 10px;
-  border-right: 1px solid #ccc;
+  border-right: 2px solid #41b883;
 }
 
 .cart-item-img {
@@ -78,6 +98,7 @@ export default {
   padding: 10px;
   border: none;
   font-size: 27px;
+  color: #3b8070;
   outline: none;
   background-color: #fff;
   cursor: pointer;

@@ -41,7 +41,7 @@ export default {
 }
 
 .search-input:focus {
-  outline: 1px solid pink;
+  outline: 1px solid #41b883;
 }
 
 .search-btn {
@@ -58,7 +58,7 @@ export default {
 }
 
 .search-btn i {
-  color: pink;
+  color: #41b883;
   line-height: 28px;
 }
 </style>

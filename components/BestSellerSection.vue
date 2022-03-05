@@ -1,6 +1,6 @@
 <template>
   <div class="best-seller-section section">
-    <h2 class="section-title">Best Seller</h2>
+    <h2 class="section-title">Products</h2>
     <ul class="product-list">
       <ProductItem
         v-for="item in products"
@@ -28,5 +28,10 @@ export default {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.section-title {
+  font-weight: 700;
+  color: #41b883;
 }
 </style>
