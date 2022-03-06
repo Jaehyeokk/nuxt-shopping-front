@@ -2,7 +2,9 @@
   <div class="container">
     <div class="section">
       <h2 class="title">Cart</h2>
-      <p class="cart-sub-title">There are {{ cartsLenghth }} products in your cart.</p>
+      <p class="cart-sub-title">
+        There are {{ cartsLenghth }} products in your cart.
+      </p>
       <ul class="cart-list">
         <li v-for="cart in carts" :key="cart.id" class="cart-item">
           <div class="cart-img-wrapper">
@@ -23,13 +25,50 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Nuxt Shopping | Cart',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: '장바구니 페이지 입니다.',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Cart',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: '장바구니 페이지 입니다.',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://nuxt-shopping-front.herokuapp.com${this.$route.path}`,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Cart',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: '장바구니 페이지 입니다.',
+        },
+      ],
+    };
+  },
   computed: {
     carts() {
       return this.$store.state.carts;
     },
     cartsLenghth() {
-      return this.$store.state.carts.length
-    }
+      return this.$store.state.carts.length;
+    },
   },
   methods: {
     async removeCartItem(id) {

@@ -19,6 +19,53 @@ export default {
   async asyncData({ store, params }) {
     await store.dispatch('FETCH_PRODUCT', params.id);
   },
+  head() {
+    return {
+      title: `Nuxt Shopping | ${this.product.name}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `$${this.product.price}`,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.product.name}`,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `$${this.product.price}`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${this.product.imageUrl}`,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://nuxt-shopping-front.herokuapp.com${this.$route.path}`,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.product.name}`,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `$${this.product.price}`,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: `${this.product.imageUrl}`,
+        },
+      ],
+    };
+  },
   computed: {
     product() {
       return this.$store.state.product;
@@ -108,7 +155,7 @@ export default {
 
 @media screen and (max-width: 480px) {
   .product-title {
-    font-size: 24px 
+    font-size: 24px;
   }
 
   .product-price {
