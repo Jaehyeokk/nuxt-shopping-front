@@ -1,6 +1,6 @@
 ## 🔗 Demo
 
-<!-- [<img src="src/assets/images/mockup-nuxt-shopping.png">](https://nuxt-shopping-front.herokuapp.com/ "데모 사이트 바로가기") -->
+[<img src="/assets/images/mockup-nuxt-shopping.png">](https://nuxt-shopping-front.herokuapp.com/ "데모 사이트 바로가기")
 
 <br />
 

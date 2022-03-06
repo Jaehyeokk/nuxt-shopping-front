@@ -48,7 +48,10 @@ export const actions = {
 
   async FETCH_CART_ITEMS({ commit }) {
     const response = await fetchCartItems()
-    const items = response.data
+    const items = response.data.map(item => ({
+      ...item,
+      imageUrl: `${item.imageUrl}?random=${Math.random()}`
+    }))
     commit('SET_CART_ITEMS', items)
     return response
   },
